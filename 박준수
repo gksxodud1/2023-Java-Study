@@ -1,0 +1,36 @@
+package hw.java;
+import java.util.Random;
+import java.util.Scanner;
+public class numberrandom {
+    public static void main(String[] args) {
+        Random random = new Random();
+        int answer = random.nextInt(10);
+        System.out.println(("정답 미리보기") + answer);
+        int ipnumber;
+        int chance = 4;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("1~10사이의 숫자중 하나로 배정된 숫자");
+        ipnumber = scanner.nextInt();
+        for (int i = 0; i < 10; i++) {
+            if (ipnumber == answer) {
+                System.out.println("정답입니다.");
+                break;
+            }
+
+
+            if (ipnumber > answer) {
+                System.out.println("down");
+            }
+
+            if (ipnumber < answer) {
+                System.out.println("high");
+            }
+            chance--;
+
+        }
+        if (chance == 0) {
+            System.out.println("실패하였습니다. 정답은 " + answer + "입니다.");
+
+        }
+    }
+}

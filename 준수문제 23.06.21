@@ -1,0 +1,29 @@
+import java.util.Scanner;
+class Myquiz {
+    public void myHeart() {
+        System.out.println("무슨 소리 하십니까. 책펴고 공부하십쇼");
+    }
+}
+
+class MyExtends extends Myquiz {
+    @Override
+    public void myHeart() {
+        System.out.println("좋습니다. 열심히 하십쇼");
+    }
+}
+
+
+public class VacationMindset {
+    public static void main(String[] args) {
+        Myquiz myquiz = new MyExtends();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("방학이니 공부를 좀 쉬고 놀러고가고 싶습니까? true / false");
+        boolean b = sc.nextBoolean();
+        if(b == true) {
+            myquiz.myHeart();
+        } else if(b == false) {
+            System.out.println("자식클래스 마이즈실행");
+            myquiz.myHeart();
+        }
+    }
+}

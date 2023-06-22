@@ -1,0 +1,145 @@
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Ex08_BaseballFunction {
+	public static void main(String[] args) {
+
+		// 1. 초기화
+		// 2. random
+		/////////////////////// loop
+		// 3. user input
+		// 4. finding (판정)
+		// 4. Message
+		/////////////////////// loop
+		// 5. result (출력)
+
+		// Main
+		
+		int[] rNum = new int[3];	// 난수 세개 담을 배열 생성
+		int[] uNum = new int[3];	// 유저 입력 담을 배열 생성 
+		setRandomNumber(rNum);		// 난수 생성 
+		playGame(rNum, uNum);		// 게임 플레이
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	// 메소드 부분 
+	
+	// 난수 입력받기
+	static int[] setRandomNumber(int rNum[]) {
+		Random r = new Random();
+		boolean[] _switch = new boolean[10];
+
+		// _switch 에 모든 데이터를 꺼준다
+		for (int i = 0; i < _switch.length; i++) {
+			_switch[i] = false;
+		}
+		// random
+		// 하드 코딩하지 않고 중복을 막는 방법
+		// boolean 사용해서 들어온 값은 스위치에 false를 true 바꿔준다
+		int ran;
+		int w = 0;
+		while (w < 3) {
+			ran = r.nextInt(10);
+			if (_switch[ran] == false) {
+				_switch[ran] = true;
+				rNum[w] = ran + 1;
+				w++;
+			}
+
+		}
+
+		return rNum;
+	}
+
+	
+	// 게임 하기
+	static void playGame(int[] rNum, int[] uNum) {
+		System.out.println("< Baseball Game > ");
+		boolean clear = false;
+		int count = 0;
+		while (!clear && count < 10) {
+			count++;
+			uNum = setUserNumber(uNum);
+			int ball = ball(rNum, uNum);
+			int strike = strike(rNum, uNum);
+			clear = printScore(ball, strike, count);
+		}
+		if(clear) clearMsg(rNum);	// 성공시 
+		if(count >= 10) System.out.println("횟수 초과 : Game Over");	// 실패시
+		
+	}
+
+	// 유저 입력받기
+	static int[] setUserNumber(int [] uNum) {
+		Scanner sc = new Scanner(System.in);
+		// user input
+		while (true) {
+			for (int i = 0; i < uNum.length; i++) {
+				System.out.print((i + 1) + "번째 수 = ");
+				uNum[i] = sc.nextInt();
+			}
+			if (uNum[0] != uNum[1] || uNum[0] != uNum[2] || uNum[1] != uNum[2]) {
+				break;
+			}
+			System.out.println("잘못입력했습니다");
+
+		}
+		//sc.close();
+		return uNum;
+	}
+
+	// ball
+	static int ball(int[] rNum, int[] uNum) {
+		int ball = 0;
+		for (int i = 0; i < rNum.length; i++) {
+			for (int j = 0; j < rNum.length; j++) {
+				if (rNum[i] == uNum[j] && i != j) {
+					ball++;
+				}
+			}
+		}
+		return ball;
+
+	}
+
+	// strike
+	static int strike(int[] rNum, int[] uNum) {
+		int strike = 0;
+		for (int i = 0; i < rNum.length; i++) {
+			if (rNum[i] == uNum[i]) {
+				strike++;
+			}
+		}
+		return strike;
+
+	}
+	
+	static boolean printScore(int ball, int strike, int count) {
+		
+		if (strike == 3 ) {
+			System.out.println("정답입니다!");
+			System.out.println(count +"회 만에 맞췄습니다.");
+			return true;
+		}else {
+			System.out.println(ball + " ball, " + strike + " strike");
+			System.out.println("남은 횟수 : " + (10 - count)+"회");
+			return false;
+			
+		}
+		
+	}
+	
+	static void clearMsg(int[] rNum) {
+		System.out.println("정답 : " + Arrays.toString(rNum));
+	}
+	
+	
+	
+}

@@ -22,8 +22,8 @@ public class VacationMindset {
         if(b == true) {
             myquiz.myHeart();
         } else if(b == false) {
-            System.out.println("자식클래스 마이즈실행");
-            myquiz.myHeart();
+            MyExtends myExtends = (MyExtends) myquiz;
+            myExtends.myHeart();
         }
     }
 }

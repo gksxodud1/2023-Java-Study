@@ -39,7 +39,7 @@ public class BaseballGame {
 
                 if (strikeNum == sysNumList.size()) {  // 모두 맞췄다면 새게임시작(1) 게임종료(2) 여부 묻기
                     System.out.println(String.format("%d개의 숫자를 모두 맞히셨습니다. 게임을 종료합니다.", strikeNum));
-                    //%d는 integer Formatting 10진수형식을 설정할때 이용
+
                     isFinish = true;
                 }
             }
@@ -64,7 +64,7 @@ public class BaseballGame {
 
         boolean validInputNum = false;
 
-        do {
+        do {                                 //do 를 사용한 이유는 와일문과 다르게 조건이 거짓이어도 적어도 한번은 실행 시킴
             System.out.println("숫자를 입력하세요: ");
             String inputNum = scanner.nextLine();
 
@@ -94,7 +94,7 @@ public class BaseballGame {
                     inputNumList.add(Character.getNumericValue(c));
                 }
             }
-            if (!hasZero && !hasDuplicate && inputNumList.size() == 3) {
+            if (!hasZero && !hasDuplicate && inputNumList.size() == 3) {                       //입력값 없는 변수   중복 잡는 변수 입력 변수
                 validInputNum = true;  //validinputNum 은 유효한 값 입력 담은 변수
             } else {
                 System.out.println("잘못된 입력입니다. 1부터 9까지의 서로다른 세자리 숫자를 입력해주세요.");
@@ -108,10 +108,10 @@ public class BaseballGame {
         String resultMsg = "";
         if (ballNum == 0) {
             if (strikeNum == 0) resultMsg = "낫싱";
-            else resultMsg = String.format("%d스트라이크", strikeNum);
+            else resultMsg = String.format("%d스트라이크", strikeNum);    //%d는 integer Formatting 10진수형식을 설정할때 이용
         } else {
             if (strikeNum == 0) resultMsg = String.format("%d볼", ballNum);
-            else resultMsg = String.format("%d볼 %d스트라이크", ballNum, strikeNum);
+            else resultMsg = String.format("%d볼 %d스트라이크", ballNum, strikeNum);    //%d는 integer Formatting 10진수형식을 설정할때 이용
         }
         return resultMsg;
     }

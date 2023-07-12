@@ -1,0 +1,32 @@
+package Bubble;
+
+import java.util.*;
+
+public class ArrayListEx1 {
+    public static void main(String[] args) {
+        int[] arr = {4, 3, 1, 5, 6};  //arr 라는 변수에 정수형 배열을 정의하고 데이터를 넣어줬음
+          //5개의 숫자를 정렬해야 하므로 총 정렬횟수는 5번이
+        for(int j = 0; j < arr.length - 1; j++){  //arr.length 만큼 반복하지 않고 -1만큼 반복하는 이유는
+            //기준이 되는 요소를 [i]로 인덱싱하고 비교할 요소를 [i+1]로 인덱싱 한다.
+            //그럼 43156에서 4 를 뺴고 나머지와 비교해야 하기 때문에 4번만 반복해줘야 함  만약 length로 지정하면 비교할 요소는 4개지만
+            //length  값인 5번 비교하려 하기 때문에 inx out of bounds for length 오류 발생함.
+            for(int i = 0; i  < arr.length -1; i++){
+                if(arr[i] > arr[i+1]){  //앞 원소와 뒷 원소의 크기를 비교해서
+                    // 만약 앞 원소의 크기가 크다면 앞 원소의 크기를 임시변수 temp에 저장한다
+                    int temp = arr[i];
+                    arr[i] = arr[i+1];//이번에는 뒷 원소를 앞 원소의 자리에 저장하고
+                    // 뒷원소의 자리에는 임수변수에 있는 데이터를 저장해준다.
+                    arr[i+1] = temp;
+                }
+                //
+            }
+        }
+
+        System.out.println(Arrays.toString(arr));
+    }
+}
+
+
+
+//버블정렬이란 인접한 두 원소의 크기를 비교하여 정렬하는 알고리즘 이며
+//자신의 앞과 자신을 비교하여 데이터를 교환하는 정렬

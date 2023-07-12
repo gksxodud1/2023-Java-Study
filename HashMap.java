@@ -1,8 +1,8 @@
 import java.util.*;
 public class HashMap {
     public static void main(String[] args) {
-        ArrayList<java.util.HashMap<String,String>> list = new ArrayList<java.util.HashMap<String,String>>();
-        java.util.HashMap<String,String> personMap1 = new java.util.HashMap<String,String>();
+        ArrayList<java.util.HashMap<String,String>> list = new ArrayList<java.util.HashMap<String,String>>();   //선언및 대입
+        java.util.HashMap<String,String> personMap1 = new java.util.HashMap<String,String>();  //선언 및 대입
 
         personMap1.put("이름","박준수");
         personMap1.put("나이","23");
@@ -29,3 +29,4 @@ public class HashMap {
         System.out.println(takeMap2);
     }
 }
+//설명을 하자면 어레이 리스트에 스트링 스트링 값이 입력되는 해시맵을 생성 해주고 값을 넣어준다 .      라는 내용

@@ -1,12 +1,15 @@
 package Test;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class TestOneBon {
     public static void main(String[] args) {
-        String [] name;
-        int [][] score;
-        float [] avg;
+        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+        Map<String,String> h1 = new HashMap<>();
+        Map<String,Integer> h2 = new HashMap<>();
+        Map<String,Float> h3 = new HashMap<>();
+
+
 
         int n = 0;
 
@@ -14,28 +17,27 @@ public class TestOneBon {
         System.out.print("COUNT :");
         n= sc.nextInt();
 
-        name = new String[n];
-        score = new int[n][4];
-        avg = new float[n];
+
 
         for (int  i=0; i<n; i++) {
-            name[i] = sc.next();
-            for (int j=0; j< (score[i].length) -1; j++) {
-                score[i][j] = sc.nextInt();
-                score[i][3] += score[i][j];
+            h1[i][1] = sc.next();
+            for (int j=0; j< (h2[i].length) -1; j++) {
+                h2[i][j] = sc.nextInt();
+                h2[i][3] += h2[i][j];
 
             }
-            avg[i] = score[i][3]/3.0f;
+            h3[i] = h2[i][3]/3.0f;
 
         }
         for (int i = 0; i <n; i++) {
-            System.out.println("name:" + name[i]);
-            System.out.println("score1:" + score[i][0]);
-            System.out.println("score2: " + score[i][1]);
-            System.out.println("score3:" + score[i][2]);
-            System.out.println("total: " + score[i][3]);
-            System.out.println("average:" + avg[i]);
+            System.out.println("name:" + h1[i]);
+            System.out.println("score1:" + h2[i][0]);
+            System.out.println("score2: " + h2[i][1]);
+            System.out.println("score3:" + h2[i][2]);
+            System.out.println("total: " + h2[i][3]);
+            System.out.println("average:" + h3[i]);
 
         }
     }
 }
+

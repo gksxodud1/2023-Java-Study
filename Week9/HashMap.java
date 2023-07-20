@@ -1,7 +1,7 @@
 package Week9;
 
 import java.util.*;
-public class HashMap {
+public class HashMap1 {
     public static void main(String[] args) {
         ArrayList<java.util.HashMap<String,String>> list = new ArrayList<java.util.HashMap<String,String>>();   //선언및 대입
         java.util.HashMap<String,String> personMap1 = new java.util.HashMap<String,String>();  //선언 및 대입

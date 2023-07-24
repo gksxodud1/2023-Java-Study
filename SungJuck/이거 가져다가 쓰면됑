@@ -68,7 +68,7 @@ public class Test {
             System.out.println("average : " + personMap.get("avg"));
 
             Collections.sort(scores);
-            System.out.println("학번의 오름차순으로 정렬 후...");
+            System.out.println("총합의 오름차순으로 정렬 후...");
             for (scores.sort((??????????????????????????????? ) {
                 System.out.println(total);
 

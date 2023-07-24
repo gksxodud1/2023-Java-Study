@@ -22,7 +22,6 @@ public class Test {
         int eng = 0;
         int math = 0;
         double avg = 0.0;
-        int TopMathScore = 0;
 
 
         for (int i = 0; i < n; i++) {
@@ -45,7 +44,7 @@ public class Test {
             score.add(math);
             total += math;
             score.add(total);
-            score.add(TopMathScore);
+
 
             personMap.put("score", score);
 
@@ -67,49 +66,22 @@ public class Test {
             System.out.println("total : " + scores.get(3));
             System.out.println("average : " + personMap.get("avg"));
 
-            Collections.sort(scores);
-            System.out.println("학번의 오름차순으로 정렬 후...");
-            for (scores.sort((Comparator<? super Integer>) score); ; ) {
-                System.out.println(total);
+            Collections.sort(list, new Comparator<Object>() {
+                // Comparable 인터페이스를 구현하여 전달
+                @Override //꼭 해줘야 하는것
+                public int compare(Object s1,Object s2) {
+                    return (Integer) ((Map<String, Object>) s1).get("학생1") - (Integer) ((Map<String, Object>) s2).get("학생2");
+                }
+            });
 
-
-                System.out.println("=======================================");
-
-
-//    public static void main(String[] args) {
-//        String []name;
-//        int [][]score;
-//        float []avg;
-//
-//        int n=0;
-//
-//        Scanner sc = new Scanner(System.in);
-//        System.out.print("Count : ");
-//        n = sc.nextInt();
-//
-//        name = new String[n];
-//        score = new int[n][4];
-//        avg = new float[n];
-//
-//        for(int i = 0;i<n;i++) {
-//            name[i] = sc.next();
-//            for(int j=0;j<(score[i].length)-1;j++) {
-//                score[i][j] = sc.nextInt();
-//                score[i][3] += score[i][j];
-//            }
-//            avg[i] = score[i][3]/3.0f;
-//        }
-//
-//        for(int i=0;i<n;i++) {
-//            System.out.println("name : " + name[i]);
-//            System.out.println("score1 : " + score[i][0]);
-//            System.out.println("score2 : " + score[i][1]);
-//            System.out.println("score3 : " + score[i][2]);
-//            System.out.println("total : " + score[i][3]);
-//            System.out.println("average : " + avg[i]);
-//        }
-//    }
+            System.out.println("============오름 차순============");
+            for (Map<String, Object> map : list) {
+                System.out.println("name : " + map.get("name"));
             }
         }
     }
 }
+
+
+
+             

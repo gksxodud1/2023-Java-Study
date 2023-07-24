@@ -22,7 +22,6 @@ public class Test {
         int eng = 0;
         int math = 0;
         double avg = 0.0;
-  
 
 
         for (int i = 0; i < n; i++) {
@@ -45,7 +44,7 @@ public class Test {
             score.add(math);
             total += math;
             score.add(total);
-            
+
 
             personMap.put("score", score);
 
@@ -67,10 +66,22 @@ public class Test {
             System.out.println("total : " + scores.get(3));
             System.out.println("average : " + personMap.get("avg"));
 
-            Collections.sort(scores);
-            System.out.println("총합의 오름차순으로 정렬 후...");
-            for (scores.sort((??????????????????????????????? ) {
-                System.out.println(total);
+            Collections.sort(list, new Comparator<Object>() {
+                // Comparable 인터페이스를 구현하여 전달
+                @?????? //꼭 해줘야 하는것
+                public int compare(?????,?????) {
+                    return (Integer) ((Map<String, Object>) s1).get("학생1") - (Integer) ((Map<String, Object>) s2).get("학생2");
+                }
+            });
+
+            System.out.println("============오름 차순============");
+            for (Map<String, Object> map : list) {
+                System.out.println("name : " + map.get("name"));
+            }
+        }
+    }
+}
 
 
-                System.out.println("=======================================");
+
+             

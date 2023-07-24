@@ -22,7 +22,7 @@ public class Test {
         int eng = 0;
         int math = 0;
         double avg = 0.0;
-        int TopMathScore = 0;
+  
 
 
         for (int i = 0; i < n; i++) {
@@ -45,7 +45,7 @@ public class Test {
             score.add(math);
             total += math;
             score.add(total);
-            score.add(TopMathScore);
+            
 
             personMap.put("score", score);
 

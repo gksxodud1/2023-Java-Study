@@ -66,10 +66,10 @@ public class Test {
             System.out.println("total : " + scores.get(3));
             System.out.println("average : " + personMap.get("avg"));
 
-            Collections.sort(list, new Comparator<Object>() {
+            Collections.sort(list, new Comparator<Object>() {  //컴페레터 는 오브젝트의 커멮어를 재정의해야 사용할수 있다.
                 // Comparable 인터페이스를 구현하여 전달
-                @Override //꼭 해줘야 하는것
-                public int compare(Object s1,Object s2) {
+                @Override //꼭 해줘야 하는것  //객체간 정수크기를 비교하기 위해 
+                public int compare(Object s1,Object s2) {    //서로 다른 객체   오브젝트로 재정의한 컴페어 메소드 
                     return (Integer) ((Map<String, Object>) s1).get("학생1") - (Integer) ((Map<String, Object>) s2).get("학생2");
                 }
             });

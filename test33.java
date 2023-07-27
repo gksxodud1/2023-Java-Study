@@ -42,7 +42,7 @@ public class test33 {
                 System.out.println("첫 번쨰 점수 : " + scores.get(0));
                 System.out.println("첫 번쨰 점수 : " + scores.get(1));
                 System.out.println("첫 번쨰 점수 : " + scores.get(2));
-                int total = scores.get(0)+scores.get(1)+scores.get(2);
+              
                 System.out.println("총점 : " + total);
                 System.out.println("평균:" + highAvg);
             }else {

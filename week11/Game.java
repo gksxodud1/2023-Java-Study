@@ -1,5 +1,6 @@
 package week11game;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,8 +10,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
-    public static JSONArray  jsonArray = new JSONArray();
-
+    
 
     public static ArrayList<BaseballGame> gameList = new ArrayList<>();
 
@@ -39,16 +39,6 @@ public class Game {
                 printAllResult();
             }else if(value == 3){
                 System.out.println(">> 게임을 종료합니다. --------------");
-
-                for (int i = 0; i<gameCount; i++) {
-                    jsonArray.put(jsonArray.get((i)));  //게임리스트에서 i번째 값을 제이슨 어레이에 넣어줌
-                }
-                String Jsondata = jsonArray.toString();
-                Writer writer = new FileWriter("C:/Temp/game.json");
-                writer.write(Jsondata);
-
-                writer.close();
-
                 break;
 
             }else{
@@ -68,6 +58,24 @@ public class Game {
         System.out.println("메뉴를 선택 하세요. >>>>>>>>>>>>>> ");
         System.out.print("> ");
 
+    }
+    public static void JsonData() throws IOException{  //
+        JSONArray jsonArray = new JSONArray();
+        for (int i = 0; i< gameList.size(); i++) {  // i가 0부터  gamelist의 사이즈보다 작을때까지 반복
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("성공여부",gameList.get(i).clear);
+            jsonObject.put(" 기회횟수" , gameList.get(i).chanceCount);
+            jsonObject.put("정답숫자",gameList.get(i).rand_num);
+            jsonObject.put("회차입력데이터" , gameList.get(i).caseList);
+            jsonArray.put(jsonObject);
+            String  json = jsonArray.toString();
+            System.out.println(json);
+
+            Writer writer = new FileWriter("C:/Temp/Game(2).json");
+                    writer.write(json);
+                    writer.flush();
+                    writer.close();
+        }
     }
 
 
@@ -114,6 +122,7 @@ public class Game {
 
             }
         }
+
 
         PrintResult printer = new PrintResult();
         printer.print(myGame);

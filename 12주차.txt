@@ -1,0 +1,8 @@
+ant 일반적 도구  maven maven 프로젝트    gradle   -  gradle  groovy 언어로 되어 있음  
+
+issue: 버전문제  -class 유무 - function 유무 
+외부 라이브러리 jar 파일 ant     .class zip.
+                    jar 경로.버전 지정  maven, glade
+
+
+                                  remote  가져와서 repository 에 넣어준다.         

@@ -22,4 +22,10 @@ public class ArrayStream {
 
     }
 }
+//stream()메소드로 스트림 객체를 얻은 후 
+//foreach(num->System.out.println(num));에서 ArrayList에있는 요소들을 하나씩 출력합니다. 
+//람다식 기술
+//람다식이란 "식별자없이 실행가능한 함수"
 
+함수인데 함수를 따로 만들지 않고 코드한줄에 함수를 써서 
+그것을 호출하는 방식
